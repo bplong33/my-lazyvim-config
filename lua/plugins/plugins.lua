@@ -1,5 +1,5 @@
 return {
-  {
+  { -- Terminal Overlay
     "akinsho/toggleterm.nvim",
     version = "v2.*",
     opts = {
@@ -40,5 +40,37 @@ return {
         },
       },
     },
+  },
+  { -- LSP Configuration & Plugins
+    "neovim/nvim-lspconfig",
+    init = function()
+      local on_attach = function(client, bufnr)
+        if client.name == "ruff_lsp" then
+          -- Disable hover in favor of Pyright
+          client.server_capabilities.hoverProvider = false
+        end
+      end
+
+      require("lspconfig").ruff_lsp.setup({
+        on_attach = on_attach,
+      })
+
+      require("lspconfig").pyright.setup({
+        on_attach = on_attach,
+        -- disable pyright for linting in favor of ruff_lsp
+        settings = {
+          pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              -- Ignore all files for analysis to exclusively use Ruff for linting
+              ignore = { "*" },
+            },
+          },
+        },
+      })
+    end,
   },
 }
