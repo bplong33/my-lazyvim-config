@@ -76,10 +76,40 @@ return {
   -- Themes
   {
     "sainnhe/everforest",
-    priority = 1000,
     lazy = false,
+    priority = 1000,
+    opts = {},
     config = function()
       vim.cmd.colorscheme("everforest")
     end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+    -- Theme inspired by Atom
+    "navarasu/onedark.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    -- config = function()
+    --   vim.cmd.colorscheme("onedark")
+    -- end,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+    -- Theme inspired by Sublime
+    "kaiuri/nvim-juliana",
+    lazy = false,
+    opts = {},
+    config = true,
   },
 }
