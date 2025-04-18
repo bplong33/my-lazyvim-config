@@ -24,55 +24,55 @@ return {
       },
     },
   },
-  { -- Fuzzy Finder (files, lsp, etc)
-    "nvim-telescope/telescope.nvim",
-    opts = {
-      defaults = {
-        mappings = {
-          i = {
-            ["<Down>"] = require("telescope.actions").move_selection_next,
-            ["<Up>"] = require("telescope.actions").move_selection_previous,
-            ["<C-j>"] = require("telescope.actions").move_selection_next,
-            ["<C-k>"] = require("telescope.actions").move_selection_previous,
-            ["<C-u>"] = false,
-            ["<C-d>"] = false,
-          },
-        },
-      },
-    },
-  },
-  { -- LSP Configuration & Plugins
-    "neovim/nvim-lspconfig",
-    init = function()
-      local on_attach = function(client, bufnr)
-        if client.name == "ruff_lsp" then
-          -- Disable hover in favor of Pyright
-          client.server_capabilities.hoverProvider = false
-        end
-      end
-
-      require("lspconfig").ruff_lsp.setup({
-        on_attach = on_attach,
-      })
-
-      require("lspconfig").pyright.setup({
-        on_attach = on_attach,
-        -- disable pyright for linting in favor of ruff_lsp
-        settings = {
-          pyright = {
-            -- Using Ruff's import organizer
-            disableOrganizeImports = true,
-          },
-          python = {
-            analysis = {
-              -- Ignore all files for analysis to exclusively use Ruff for linting
-              ignore = { "*" },
-            },
-          },
-        },
-      })
-    end,
-  },
+  -- { -- Fuzzy Finder (files, lsp, etc)
+  --   "nvim-telescope/telescope.nvim",
+  --   opts = {
+  --     defaults = {
+  --       mappings = {
+  --         i = {
+  --           ["<Down>"] = require("telescope.actions").move_selection_next,
+  --           ["<Up>"] = require("telescope.actions").move_selection_previous,
+  --           ["<C-j>"] = require("telescope.actions").move_selection_next,
+  --           ["<C-k>"] = require("telescope.actions").move_selection_previous,
+  --           ["<C-u>"] = false,
+  --           ["<C-d>"] = false,
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
+  -- { -- LSP Configuration & Plugins
+  --   "neovim/nvim-lspconfig",
+  --   init = function()
+  --     local on_attach = function(client, bufnr)
+  --       if client.name == "ruff_lsp" then
+  --         -- Disable hover in favor of Pyright
+  --         client.server_capabilities.hoverProvider = false
+  --       end
+  --     end
+  --
+  --     require("lspconfig").ruff_lsp.setup({
+  --       on_attach = on_attach,
+  --     })
+  --
+  --     require("lspconfig").pyright.setup({
+  --       on_attach = on_attach,
+  --       -- disable pyright for linting in favor of ruff_lsp
+  --       settings = {
+  --         pyright = {
+  --           -- Using Ruff's import organizer
+  --           disableOrganizeImports = true,
+  --         },
+  --         python = {
+  --           analysis = {
+  --             -- Ignore all files for analysis to exclusively use Ruff for linting
+  --             ignore = { "*" },
+  --           },
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
   -- Themes
   {
     "sainnhe/everforest",
