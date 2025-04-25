@@ -16,6 +16,6 @@ vim.g.clipboard = {
   cache_enabled = true,
 }
 
-vim.g.minipairs_disable = true -- disable autopairs by default
+-- vim.g.minipairs_disable = true -- disable autopairs by default
 local space = "·"
 vim.opt.listchars:append({ tab = "¦ ", trail = space, nbsp = space })
