@@ -112,4 +112,11 @@ return {
     opts = {},
     config = true,
   },
+  {
+    -- Disable inlay hints by default
+    "nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = false },
+    },
+  },
 }

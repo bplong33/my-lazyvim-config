@@ -18,5 +18,8 @@
 
 -- vim.g.minipairs_disable = true -- disable autopairs by default
 local space = "·"
-vim.opt.listchars:append({ tab = "¦ ", trail = space, nbsp = space })
 vim.g.lazyvim_blink_main = false
+
+local opt = vim.opt
+opt.listchars:append({ tab = "¦ ", trail = space, nbsp = space })
+opt.tabstop = 4
