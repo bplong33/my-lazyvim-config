@@ -11,7 +11,7 @@ return {
       close_on_exit = false,
       auto_scroll = true,
       start_in_insert = true,
-      direction = "horizontal",
+      direction = "float",
       shell = vim.o.shell,
       shading_factor = 2,
       float_opts = {
